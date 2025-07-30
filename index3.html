@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kamil Nazaruk | Cybersecurity & Graphics Portfolio</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=VT323&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Your original, great color palette */
+            --primary: #38bdf8;
+            --accent: #22c55e;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --header-bg: rgba(15, 23, 42, 0.85); /* Header background with transparency */
+
+            /* Fonts */
+            --font-main: 'Poppins', sans-serif;
+            --font-cyber: 'VT323', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 6rem 0; border-bottom: 1px solid #334155; }
+        section:last-of-type { border-bottom: none; }
+
+        h1, h2, h3 { font-weight: 600; margin-bottom: 1rem; }
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; text-align: center; margin-bottom: 3rem; font-family: var(--font-cyber); color: var(--primary); }
+        h3 { font-size: 1.5rem; color: var(--primary); }
+        p { margin-bottom: 1rem; color: #cbd5e1; }
+        a { color: var(--accent); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: #fff; }
+
+        .header {
+            position: sticky; top: 0; width: 100%; z-index: 1000;
+            background: var(--header-bg); backdrop-filter: blur(10px);
+            padding: 1rem 0; border-bottom: 1px solid #334155;
+        }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+        .main-nav ul { display: flex; list-style: none; }
+        .main-nav ul li { margin-left: 2rem; }
+        .main-nav a { font-weight: 400; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: all 0.3s; }
+        .main-nav a.active, .main-nav a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+        .hamburger { display: none; cursor: pointer; font-size: 1.8rem; }
+
+        #home {
+            min-height: 100vh; display: flex; align-items: center; text-align: center;
+        }
+        .hero-content { display: flex; flex-direction: column; align-items: center; }
+        .hero-photo {
+            width: 150px; height: 150px; border-radius: 50%;
+            border: 4px solid var(--accent); object-fit: cover; margin-bottom: 1.5rem;
+        }
+        #home h1 {
+            font-family: var(--font-cyber);
+            color: var(--accent);
+            text-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+            font-size: 4rem;
+        }
+        .hero-subtitle { font-size: 1.5rem; font-weight: 300; margin-bottom: 2rem; color: var(--primary); }
+        .cta-buttons a {
+            display: inline-block; background: var(--primary); color: var(--bg);
+            padding: 0.8rem 2rem; border-radius: 50px; margin: 0.5rem;
+            font-weight: 600; transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .cta-buttons a:hover { transform: translateY(-3px); background-color: #7dd3fc; }
+
+        .grid-layout {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
+        }
+        .card {
+            background: var(--card); border-radius: 12px; padding: 2rem;
+            border: 1px solid transparent; transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px); border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.1);
+        }
+        .card h3 { font-size: 1.3rem; }
+        .card .role { display: block; font-weight: 300; color: #94a3b8; margin-top: -1rem; margin-bottom: 1rem; }
+        
+        .skill-card i { font-size: 2rem; color: var(--accent); margin-bottom: 1rem; }
+        
+        .project-links a { margin-right: 1.5rem; font-weight: 600; }
+
+        #contact { text-align: center; }
+        .contact-links { margin-top: 2rem; margin-bottom: 2rem; }
+        .contact-links a { font-size: 2.5rem; margin: 0 1.5rem; }
+        
+        footer { padding: 2rem 0; background-color: var(--card); text-align: center; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            #home h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.2rem; }
+            .main-nav {
+                display: none; position: absolute; top: 100%; left: 0;
+                width: 100%; background: var(--header-bg);
+            }
+            .main-nav.active { display: block; }
+            .main-nav ul { flex-direction: column; text-align: center; }
+            .main-nav ul li { margin: 1.5rem 0; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">KN</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container hero-content">
+                <img src="kamilkamil2.png" alt="Profile picture of Kamil Nazaruk" class="hero-photo">
+                <h1>Kamil Nazaruk</h1>
+                <p class="hero-subtitle">Cybersecurity Specialist with Operational Experience</p>
+                <p>I leverage the strategic thinking and discipline gained as an officer to build secure digital environments. I combine analytical skills with creative visual communication and technical knowledge to effectively protect and respond to threats.</p>
+                <div class="cta-buttons">
+                    <a href="#projects">View My Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>> ABOUT ME_</h2>
+                <p style="text-align: center; max-width: 800px; margin: auto;">
+                    My career path is unconventional, yet coherent. Years of service in the Military Gendarmerie taught me operational planning, risk analysis, and performing under pressure—skills that are invaluable in the world of cybersecurity. Managing teams and IT infrastructure in a military setting provided me with a practical foundation that I am now expanding towards defensive technologies, such as SOC/SIEM.
+                </p>
+                <p style="text-align: center; max-width: 800px; margin: auto;">
+                    Simultaneously, I am passionate about visual communication. Creating advertising and social media graphics allows me to translate complex ideas into simple, understandable images. Today, with a **CompTIA Security+ (SY0-701)** certification and practical knowledge of **HTML, CSS, and JavaScript**, I merge these two worlds: I build, design, and protect digital solutions.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>> SKILLS_</h2>
+                <div class="grid-layout">
+                    <div class="card skill-card">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h3>Cybersecurity & Strategy</h3>
+                        <p>CompTIA Security+ (SY0-701) certified, risk analysis, operational planning, fundamentals of penetration testing, developing skills towards SOC/SIEM.</p>
+                    </div>
+                    <div class="card skill-card">
+                        <i class="fa-solid fa-palette"></i>
+                        <h3>Graphics & Communication</h3>
+                        <p>Figma, Canva, designing posters, banners, and social media content. Creative visual communication.</p>
+                    </div>
+                    <div class="card skill-card">
+                        <i class="fa-solid fa-code"></i>
+                        <h3>Web Technologies</h3>
+                        <p>Practical knowledge of HTML5, CSS3 (including Flexbox, Grid), and JavaScript (ES6+), enabling the construction and understanding of web applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>> PROJECTS_</h2>
+                <div class="grid-layout">
+                    <div class="card">
+                        <h3>Banner for Uniformed Services</h3>
+                        <p>A graphic design promoting a military event. It combines military aesthetics with modern typography to reach a wide audience.</p>
+                        <div class="project-links" style="margin-top: 1rem;">
+                            <!-- [TO BE ADDED] Insert link to the graphic/project -->
+                            <a href="#" target="_blank">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Social Media Ad Campaign</h3>
+                        <p>Comprehensive visual assets for a local business. Developed the concept, chose the color palette, and created graphics with a strong call to action (CTA).</p>
+                        <div class="project-links" style="margin-top: 1rem;">
+                            <!-- [TO BE ADDED] Insert link to the graphic/project -->
+                            <a href="#" target="_blank">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                     <div class="card">
+                        <h3>Application Vulnerability Analysis (In Progress)</h3>
+                        <p>A hands-on project focused on identifying and documenting potential security flaws in a simple web application using basic tools.</p>
+                        <div class="project-links" style="margin-top: 1rem;">
+                            <!-- [TO BE ADDED] Insert link to the GitHub repository -->
+                            <a href="#" target="_blank">View on GitHub <i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2>> EXPERIENCE_</h2>
+                <div class="grid-layout">
+                    <div class="card">
+                        <h3>Staff Officer</h3>
+                        <span class="role">Military Gendarmerie</span>
+                        <p>Managed and supervised operational, training, and logistical activities. Administered IT infrastructure and implemented security procedures within the unit.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Head of Prevention Department</h3>
+                        <span class="role">Military Gendarmerie</span>
+                        <p>Planned and executed VIP protection details. Conducted crisis response exercises and preventive actions within the military community.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>> CONTACT_</h2>
+                <p>I'm open to discussing collaboration opportunities or answering any questions. Let's get in touch.</p>
+                <div class="contact-links">
+                    <!-- [TO BE ADDED] Insert your LinkedIn URL -->
+                    <a href="https://www.linkedin.com/in/kamil-nazaruk-56531736a" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <!-- [TO BE ADDED] Insert your GitHub URL -->
+                    <a href="https://github.com/KamilNaz/KamilNaz.github.io" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:kamilnazaruk91@mail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Kamil Nazaruk. Coded with passion and precision.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.main-nav');
+
+            hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+            document.querySelectorAll('.main-nav a').forEach(link => {
+                link.addEventListener('click', () => navMenu.classList.remove('active'));
+            });
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.main-nav a');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
+```
