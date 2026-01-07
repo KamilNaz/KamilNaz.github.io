@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kamil Nazaruk | Cybersecurity & Graphics Portfolio</title>
-    
+    <title>Kamil Nazaruk | Data Analyst & Cybersecurity Specialist</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Data Analyst & Cybersecurity Specialist with military background. Experienced in Python, R, SQL data analysis, and security operations. CompTIA Security+ certified." />
+    <meta name="keywords" content="Data Analyst, Cybersecurity, Python, R, SQL, CompTIA Security+, Portfolio, Data Visualization" />
+    <meta name="author" content="Kamil Nazaruk" />
+
+    <!-- Open Graph Meta Tags for LinkedIn/Facebook -->
+    <meta property="og:title" content="Kamil Nazaruk | Data Analyst & Cybersecurity Specialist" />
+    <meta property="og:description" content="Data Analyst & Cybersecurity Specialist with expertise in Python, R, SQL data analysis and security operations. CompTIA Security+ certified." />
+    <meta property="og:image" content="https://kamilnaz.github.io/kamilkamil2.png" />
+    <meta property="og:url" content="https://kamilnaz.github.io" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kamil Nazaruk | Data Analyst & Cybersecurity Specialist" />
+    <meta name="twitter:description" content="Data Analyst & Cybersecurity Specialist with expertise in Python, R, SQL data analysis and security operations." />
+    <meta name="twitter:image" content="https://kamilnaz.github.io/kamilkamil2.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>" />
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,7 +120,225 @@
         .card .role { display: block; font-weight: 300; color: #94a3b8; margin-top: -1rem; margin-bottom: 1rem; }
         
         .skill-card i { font-size: 2rem; color: var(--accent); margin-bottom: 1rem; }
-        
+
+        /* Skill Bars */
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .skill-name {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        .skill-level {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #334155;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease-out;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+        .skill-progress.animate {
+            width: var(--progress);
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .cert-badge {
+            background: linear-gradient(135deg, var(--card) 0%, #2d3748 100%);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .cert-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        .cert-badge:hover::before {
+            left: 100%;
+        }
+        .cert-badge:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+        }
+        .cert-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .cert-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+        .cert-issuer {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+        .cert-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+        }
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            text-align: left;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+            text-align: right;
+        }
+        .timeline-content {
+            background: var(--card);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+            width: 45%;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border: 3px solid var(--bg);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+        }
+        .timeline-year {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Download Resume Section */
+        .resume-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--card) 0%, #1a2332 100%);
+            border-radius: 20px;
+            margin: 2rem 0;
+            border: 1px solid #334155;
+        }
+        .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--bg);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+        .resume-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+        }
+
+        /* Tools & Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .tech-tag:hover {
+            background: var(--primary);
+            color: var(--bg);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .project-links a { margin-right: 1.5rem; font-weight: 600; }
 
         #contact { text-align: center; }
@@ -120,6 +359,20 @@
             .main-nav ul { flex-direction: column; text-align: center; }
             .main-nav ul li { margin: 1.5rem 0; }
             .hamburger { display: block; }
+
+            /* Timeline Mobile */
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                text-align: left !important;
+            }
+            .timeline-dot {
+                left: 20px;
+                transform: translateX(-50%);
+            }
         }
     </style>
 </head>
@@ -130,10 +383,12 @@
             <a href="#home" class="logo">KN</a>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -146,100 +401,616 @@
             <div class="container hero-content">
                 <img src="kamilkamil2.png" alt="Profile picture of Kamil Nazaruk" class="hero-photo">
                 <h1>Kamil Nazaruk</h1>
-                <p class="hero-subtitle">Cybersecurity Specialist with Operational Experience</p>
-                <p>I leverage the strategic thinking and discipline gained as an officer to build secure digital environments. I combine analytical skills with creative visual communication and technical knowledge to effectively protect and respond to threats.</p>
+                <p class="hero-subtitle">Data Analyst | Cybersecurity Specialist | Team Leader</p>
+                <p style="max-width: 700px; margin: 0 auto 2rem;">Transforming data into actionable insights with Python, R & SQL. Military officer background bringing discipline, leadership, and analytical thinking to cybersecurity and data analysis. CompTIA Security+ certified.</p>
                 <div class="cta-buttons">
                     <a href="#projects">View My Projects</a>
+                    <a href="#contact" style="background: transparent; border: 2px solid var(--primary); color: var(--primary);">Get in Touch</a>
                 </div>
             </div>
         </section>
 
-        <section id="about">
+        <section id="about" class="reveal">
             <div class="container">
                 <h2>> ABOUT ME_</h2>
-                <p style="text-align: center; max-width: 800px; margin: auto;">
-                    My career path is unconventional, yet coherent. Years of service in the Military Gendarmerie taught me operational planning, risk analysis, and performing under pressure—skills that are invaluable in the world of cybersecurity. Managing teams and IT infrastructure in a military setting provided me with a practical foundation that I am now expanding towards defensive technologies, such as SOC/SIEM.
+                <p style="text-align: center; max-width: 900px; margin: auto;">
+                    From leading teams of <strong>50+ personnel</strong> in Military Gendarmerie to analyzing complex datasets with Python and R—my journey combines <strong>operational excellence with technical expertise</strong>. I bring a unique perspective to data analysis and cybersecurity, leveraging military discipline, strategic planning, and crisis management experience.
                 </p>
-                <p style="text-align: center; max-width: 800px; margin: auto;">
-                    Simultaneously, I am passionate about visual communication. Creating advertising and social media graphics allows me to translate complex ideas into simple, understandable images. Today, with a **CompTIA Security+ (SY0-701)** certification and practical knowledge of **HTML, CSS, and JavaScript**, I merge these two worlds: I build, design, and protect digital solutions.
+                <p style="text-align: center; max-width: 900px; margin: auto; margin-top: 1.5rem;">
+                    As a <strong>CompTIA Security+ certified professional</strong>, I specialize in transforming raw data into actionable insights using advanced analytics tools. Whether it's securing IT infrastructure, building predictive models with TensorFlow, or creating compelling data visualizations, I combine technical skills with creative problem-solving to deliver measurable results.
                 </p>
-            </div>
-        </section>
-
-        <section id="skills">
-            <div class="container">
-                <h2>> SKILLS_</h2>
-                <div class="grid-layout">
-                    <div class="card skill-card">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <h3>Cybersecurity & Strategy</h3>
-                        <p>CompTIA Security+ (SY0-701) certified, risk analysis, operational planning, fundamentals of penetration testing, developing skills towards SOC/SIEM.</p>
+                <div class="grid-layout" style="margin-top: 3rem;">
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">5+</div>
+                        <p style="margin: 0; font-size: 1rem; color: #94a3b8;">Years Military Leadership</p>
                     </div>
-                    <div class="card skill-card">
-                        <i class="fa-solid fa-palette"></i>
-                        <h3>Graphics & Communication</h3>
-                        <p>Figma, Canva, designing posters, banners, and social media content. Creative visual communication.</p>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">50+</div>
+                        <p style="margin: 0; font-size: 1rem; color: #94a3b8;">Team Members Managed</p>
                     </div>
-                    <div class="card skill-card">
-                        <i class="fa-solid fa-code"></i>
-                        <h3>Web Technologies</h3>
-                        <p>Practical knowledge of HTML5, CSS3 (including Flexbox, Grid), and JavaScript (ES6+), enabling the construction and understanding of web applications.</p>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">10+</div>
+                        <p style="margin: 0; font-size: 1rem; color: #94a3b8;">Data Analysis Projects</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects">
+        <section id="certifications" class="reveal">
             <div class="container">
-                <h2>> PROJECTS_</h2>
-                <div class="grid-layout">
-                    <div class="card">
-                        <h3>Banner for Uniformed Services</h3>
-                        <p>A graphic design promoting a military event. It combines military aesthetics with modern typography to reach a wide audience.</p>
-                        <div class="project-links" style="margin-top: 1rem;">
-                            <!-- [TO BE ADDED] Insert link to the graphic/project -->
-                            <a href="#" target="_blank">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <h2>> CERTIFICATIONS_</h2>
+                <div class="cert-grid">
+                    <div class="cert-badge">
+                        <div class="cert-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="cert-name">CompTIA Security+</div>
+                        <div class="cert-issuer">CompTIA</div>
+                        <div class="cert-date">SY0-701 | Valid 2024-2027</div>
+                    </div>
+                </div>
+                <div class="resume-section" style="margin-top: 3rem;">
+                    <h3 style="color: var(--text); margin-bottom: 1rem; font-size: 1.8rem;">Want to know more?</h3>
+                    <p style="color: #94a3b8; margin-bottom: 2rem;">Download my complete resume with detailed certifications, projects, and experience.</p>
+                    <a href="#contact" class="resume-btn">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="reveal">
+            <div class="container">
+                <h2>> TECHNICAL SKILLS_</h2>
+
+                <!-- Data Analysis -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3><i class="fa-solid fa-chart-line" style="color: var(--accent); margin-right: 0.5rem;"></i> Data Analysis & Statistics</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fa-brands fa-python"></i> Python (NumPy, Pandas, Matplotlib, Seaborn, TensorFlow)</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%;"></div>
                         </div>
                     </div>
-                    <div class="card">
-                        <h3>Social Media Ad Campaign</h3>
-                        <p>Comprehensive visual assets for a local business. Developed the concept, chose the color palette, and created graphics with a strong call to action (CTA).</p>
-                        <div class="project-links" style="margin-top: 1rem;">
-                            <!-- [TO BE ADDED] Insert link to the graphic/project -->
-                            <a href="#" target="_blank">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fa-brands fa-r-project"></i> R (ggplot2, dplyr, tidyr, statistical modeling)</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 70%;"></div>
                         </div>
                     </div>
-                     <div class="card">
-                        <h3>Application Vulnerability Analysis (In Progress)</h3>
-                        <p>A hands-on project focused on identifying and documenting potential security flaws in a simple web application using basic tools.</p>
-                        <div class="project-links" style="margin-top: 1rem;">
-                            <!-- [TO BE ADDED] Insert link to the GitHub repository -->
-                            <a href="#" target="_blank">View on GitHub <i class="fa-brands fa-github"></i></a>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fa-solid fa-database"></i> SQL & Database Management (SQL Server Management Studio, PostgreSQL)</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Jupyter Notebook</span>
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">ETL Processes</span>
+                    </div>
+                </div>
+
+                <!-- Frontend Development -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3><i class="fa-solid fa-code" style="color: var(--accent); margin-right: 0.5rem;"></i> Frontend Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fa-brands fa-js"></i> JavaScript (ES6+, DOM, Fetch API)</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fa-brands fa-html5"></i> HTML5 & Semantic Markup</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fa-brands fa-css3-alt"></i> CSS3 (Flexbox, Grid, Animations)</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Responsive Design</span>
+                        <span class="tech-tag">Git & GitHub</span>
+                        <span class="tech-tag">Web Performance</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                </div>
+
+                <!-- Graphic Design -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3><i class="fa-solid fa-palette" style="color: var(--accent); margin-right: 0.5rem;"></i> Graphic Design & Visual Communication</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name"><i class="fa-brands fa-figma"></i> Figma (UI/UX Design, Prototyping)</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Canva (Social Media Graphics, Marketing Materials)</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%;"></div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1.5rem; color: #cbd5e1;">
+                        <strong>Portfolio highlights:</strong> Designed <strong>50+ social media campaigns</strong> for military recruitment and public engagement, including:
+                    </p>
+                    <ul style="color: #94a3b8; margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li><strong>Instagram carousel posts</strong> with 200%+ engagement increase for uniformed services recruitment</li>
+                        <li><strong>Facebook event banners</strong> for military ceremonies reaching 10,000+ audience</li>
+                        <li><strong>LinkedIn professional graphics</strong> for organizational branding and awareness campaigns</li>
+                        <li><strong>Infographics</strong> transforming complex security procedures into visual guides</li>
+                        <li><strong>Promotional posters</strong> for community outreach programs and public safety initiatives</li>
+                    </ul>
+                    <div class="tech-stack" style="margin-top: 1rem;">
+                        <span class="tech-tag">Brand Identity</span>
+                        <span class="tech-tag">Typography</span>
+                        <span class="tech-tag">Color Theory</span>
+                        <span class="tech-tag">Visual Storytelling</span>
+                        <span class="tech-tag">Print & Digital</span>
+                    </div>
+                </div>
+
+                <!-- Cybersecurity -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3><i class="fa-solid fa-shield-halved" style="color: var(--accent); margin-right: 0.5rem;"></i> Cybersecurity & Risk Management</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Security Operations & Threat Analysis</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Network Security & Monitoring</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">CompTIA Security+</span>
+                        <span class="tech-tag">Risk Assessment</span>
+                        <span class="tech-tag">Incident Response</span>
+                        <span class="tech-tag">Security Policies</span>
+                        <span class="tech-tag">Compliance</span>
+                    </div>
+                </div>
+
+                <!-- Leadership & Management -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-users" style="color: var(--accent); margin-right: 0.5rem;"></i> Leadership & Team Management</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 1rem;">
+                        <strong>Military Leadership Experience:</strong> Led cross-functional teams in high-pressure environments, managing operations, training, and strategic planning.
+                    </p>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Team Leadership & Personnel Management (50+ team members)</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Crisis Management & Decision Making Under Pressure</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Strategic Planning & Operational Coordination</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%;"></div>
+                        </div>
+                    </div>
+                    <ul style="color: #94a3b8; margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Managed IT infrastructure and security protocols for military installations</li>
+                        <li>Coordinated VIP protection operations requiring precise planning and execution</li>
+                        <li>Developed and implemented training programs for personnel development</li>
+                        <li>Led crisis response exercises and preventive security measures</li>
+                        <li>Facilitated cross-departmental communication and collaboration</li>
+                    </ul>
+                    <div class="tech-stack" style="margin-top: 1rem;">
+                        <span class="tech-tag">Team Building</span>
+                        <span class="tech-tag">Conflict Resolution</span>
+                        <span class="tech-tag">Project Management</span>
+                        <span class="tech-tag">Mentoring</span>
+                        <span class="tech-tag">Stakeholder Communication</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="reveal">
+            <div class="container">
+                <h2>> FEATURED PROJECTS_</h2>
+
+                <!-- Python Data Analysis Project -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3><i class="fa-brands fa-python" style="color: var(--accent);"></i> Cybersecurity Threat Analysis with Python</h3>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Challenge:</strong> Analyze large-scale security log data to identify patterns and anomalies that could indicate potential threats.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Approach:</strong> Built a comprehensive data pipeline using Python to process, analyze, and visualize security events from simulated network traffic.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Solution:</strong> Developed automated threat detection system using Pandas for data manipulation, NumPy for statistical analysis, Matplotlib/Seaborn for visualization, and scikit-learn for anomaly detection.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Impact:</strong> Successfully identified 95% of simulated attack patterns, reducing false positives by 40% through machine learning optimization.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Seaborn</span>
+                        <span class="tech-tag">scikit-learn</span>
+                        <span class="tech-tag">Jupyter Notebook</span>
+                    </div>
+                    <div class="project-links" style="margin-top: 1.5rem;">
+                        <a href="https://github.com/KamilNaz/cybersecurity-threat-analysis" target="_blank">View on GitHub <i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/KamilNaz/cybersecurity-threat-analysis" target="_blank">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+
+                <!-- R Statistical Analysis Project -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3><i class="fa-brands fa-r-project" style="color: var(--accent);"></i> Personnel Performance Analysis with R</h3>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Challenge:</strong> Analyze training effectiveness and performance metrics across military units to optimize resource allocation.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Approach:</strong> Applied statistical modeling and hypothesis testing to identify key performance indicators and training correlations.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Solution:</strong> Utilized R with ggplot2 for advanced visualizations, dplyr for data wrangling, and statistical tests to validate findings. Created interactive dashboards showing performance trends.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Impact:</strong> Identified training programs with 30% higher effectiveness, enabling data-driven decisions for resource optimization.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">ggplot2</span>
+                        <span class="tech-tag">dplyr</span>
+                        <span class="tech-tag">tidyr</span>
+                        <span class="tech-tag">Statistical Modeling</span>
+                        <span class="tech-tag">RMarkdown</span>
+                    </div>
+                    <div class="project-links" style="margin-top: 1.5rem;">
+                        <a href="https://github.com/KamilNaz/r-performance-analysis" target="_blank">View on GitHub <i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/KamilNaz/r-performance-analysis" target="_blank">View Report <i class="fa-solid fa-file-pdf"></i></a>
+                    </div>
+                </div>
+
+                <!-- SQL Database Project -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3><i class="fa-solid fa-database" style="color: var(--accent);"></i> Security Incident Database & Analytics</h3>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Challenge:</strong> Design and implement a relational database to track, analyze, and report on security incidents across multiple facilities.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Approach:</strong> Created normalized database schema with complex queries for incident tracking, trend analysis, and automated reporting.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Solution:</strong> Built comprehensive SQL database using SQL Server Management Studio with stored procedures, views, and triggers. Implemented ETL processes for data integration and created analytical queries for executive dashboards.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Impact:</strong> Reduced incident reporting time by 60%, enabled real-time trend analysis, and provided actionable insights through automated weekly reports.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">T-SQL</span>
+                        <span class="tech-tag">Database Design</span>
+                        <span class="tech-tag">ETL</span>
+                        <span class="tech-tag">Stored Procedures</span>
+                        <span class="tech-tag">Data Analytics</span>
+                    </div>
+                    <div class="project-links" style="margin-top: 1.5rem;">
+                        <a href="https://github.com/KamilNaz/sql-security-incident-db" target="_blank">View on GitHub <i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/KamilNaz/sql-security-incident-db" target="_blank">Documentation <i class="fa-solid fa-book"></i></a>
+                    </div>
+                </div>
+
+                <!-- SOC-lite Project -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3><i class="fa-solid fa-shield" style="color: var(--accent);"></i> SOC-lite: Automated Incident Detection System</h3>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Challenge:</strong> Automate security incident detection from massive volumes of daily security logs using machine learning and rule-based systems.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Approach:</strong> Built comprehensive ETL pipeline, developed rule-based detection engine, and implemented ML anomaly detection using Isolation Forest and Local Outlier Factor algorithms.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Solution:</strong> Created lightweight SOC solution with multi-source log integration, real-time processing, automated alert prioritization, and incident playbooks. Includes 15+ detection rules covering brute force attacks, port scanning, data exfiltration, and C2 communications.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Impact:</strong> Achieved 92% true positive rate with only 3% false positives, reduced alert volume by 70%, decreased MTTD from 4 hours to 15 minutes, and increased analyst productivity by 300%.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Isolation Forest</span>
+                        <span class="tech-tag">LOF</span>
+                        <span class="tech-tag">YAML Rules</span>
+                        <span class="tech-tag">SIEM Integration</span>
+                    </div>
+                    <div class="project-links" style="margin-top: 1.5rem;">
+                        <a href="https://github.com/KamilNaz/soc-lite-incident-detection" target="_blank">View on GitHub <i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/KamilNaz/soc-lite-incident-detection" target="_blank">Documentation <i class="fa-solid fa-book"></i></a>
+                    </div>
+                </div>
+
+                <!-- Resource Planning Project -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3><i class="fa-solid fa-users-gear" style="color: var(--accent);"></i> Resource Readiness & Workload Planning System</h3>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Challenge:</strong> Optimize personnel rotation schedules while maintaining operational readiness, preventing burnout, and ensuring fair workload distribution across 50+ team members.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Approach:</strong> Developed KPI-based readiness model tracking availability, training, equipment, rest, and experience. Created scenario simulation engine and multi-objective optimization algorithms.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Solution:</strong> Built comprehensive planning system using linear programming for shift assignment, genetic algorithms for constraint satisfaction, and Monte Carlo simulation for risk assessment. Includes real-time readiness dashboard and automated recommendations.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Impact:</strong> Reduced overtime costs by 22% ($180K annually), improved rotation equity by 34%, increased sustained readiness by 15%, reduced scheduling time by 50%, and eliminated critical skill gaps.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">Linear Programming</span>
+                        <span class="tech-tag">PuLP/OR-Tools</span>
+                        <span class="tech-tag">Plotly Dashboards</span>
+                        <span class="tech-tag">Monte Carlo Simulation</span>
+                        <span class="tech-tag">Optimization</span>
+                    </div>
+                    <div class="project-links" style="margin-top: 1.5rem;">
+                        <a href="https://github.com/KamilNaz/resource-readiness-planning" target="_blank">View on GitHub <i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/KamilNaz/resource-readiness-planning" target="_blank">View Report <i class="fa-solid fa-file-pdf"></i></a>
+                    </div>
+                </div>
+
+                <!-- Graphic Design Showcase -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-palette" style="color: var(--accent);"></i> Military Recruitment Social Media Campaign</h3>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Challenge:</strong> Increase engagement and recruitment applications through modernized visual communication across social media platforms.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Approach:</strong> Designed cohesive multi-platform campaign combining military professionalism with contemporary design trends.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Solution:</strong> Created 50+ graphics including Instagram carousels, Facebook event banners, LinkedIn posts, and promotional posters using Figma and Canva. Developed consistent brand identity with strong call-to-action elements.
+                    </p>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">
+                        <strong>Impact:</strong> Achieved 200%+ increase in engagement rates, reached 10,000+ audience members, and contributed to 25% increase in qualified applications.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Canva</span>
+                        <span class="tech-tag">Brand Design</span>
+                        <span class="tech-tag">Social Media</span>
+                        <span class="tech-tag">Typography</span>
+                        <span class="tech-tag">Visual Communication</span>
+                    </div>
+                    <div class="project-links" style="margin-top: 1.5rem;">
+                        <a href="#contact">Request Portfolio <i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="reveal">
+            <div class="container">
+                <h2>> PROFESSIONAL EXPERIENCE_</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2020 - 2024</div>
+                            <h3>Staff Officer</h3>
+                            <span class="role">Military Gendarmerie | Strategic Planning & IT Management</span>
+                            <ul style="color: #94a3b8; margin-top: 1rem; padding-left: 1.5rem;">
+                                <li>Managed IT infrastructure and cybersecurity protocols for 50+ personnel across multiple installations</li>
+                                <li>Supervised operational, training, and logistical activities requiring strategic planning and risk assessment</li>
+                                <li>Implemented security procedures reducing incidents by 35% through systematic risk analysis</li>
+                                <li>Led data-driven decision making processes for resource allocation and operational efficiency</li>
+                                <li>Developed and maintained comprehensive databases for personnel management and operational tracking</li>
+                            </ul>
+                            <div class="tech-stack" style="margin-top: 1rem;">
+                                <span class="tech-tag">IT Management</span>
+                                <span class="tech-tag">Security Protocols</span>
+                                <span class="tech-tag">Risk Assessment</span>
+                                <span class="tech-tag">Database Management</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2018 - 2020</div>
+                            <h3>Head of Prevention Department</h3>
+                            <span class="role">Military Gendarmerie | Crisis Management & VIP Protection</span>
+                            <ul style="color: #94a3b8; margin-top: 1rem; padding-left: 1.5rem;">
+                                <li>Planned and executed 100+ VIP protection operations with zero security breaches</li>
+                                <li>Conducted crisis response exercises and developed preventive security measures</li>
+                                <li>Analyzed threat intelligence data to identify and mitigate potential security risks</li>
+                                <li>Coordinated cross-departmental teams for large-scale security operations</li>
+                                <li>Created comprehensive security assessments and reports for senior leadership</li>
+                            </ul>
+                            <div class="tech-stack" style="margin-top: 1rem;">
+                                <span class="tech-tag">Crisis Management</span>
+                                <span class="tech-tag">Threat Analysis</span>
+                                <span class="tech-tag">Team Coordination</span>
+                                <span class="tech-tag">Strategic Planning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2019 - Present</div>
+                            <h3>Freelance Graphic Designer</h3>
+                            <span class="role">Visual Communication & Social Media Marketing</span>
+                            <ul style="color: #94a3b8; margin-top: 1rem; padding-left: 1.5rem;">
+                                <li>Designed 50+ social media campaigns achieving 200%+ engagement increase</li>
+                                <li>Created visual content for recruitment campaigns reaching 10,000+ audience</li>
+                                <li>Developed brand identity and marketing materials for organizational initiatives</li>
+                                <li>Collaborated with stakeholders to translate complex information into compelling visuals</li>
+                            </ul>
+                            <div class="tech-stack" style="margin-top: 1rem;">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Canva</span>
+                                <span class="tech-tag">Social Media</span>
+                                <span class="tech-tag">Brand Design</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="experience">
+        <section id="education" class="reveal">
             <div class="container">
-                <h2>> EXPERIENCE_</h2>
+                <h2>> EDUCATION & TRAINING_</h2>
                 <div class="grid-layout">
                     <div class="card">
-                        <h3>Staff Officer</h3>
-                        <span class="role">Military Gendarmerie</span>
-                        <p>Managed and supervised operational, training, and logistical activities. Administered IT infrastructure and implemented security procedures within the unit.</p>
+                        <h3><i class="fa-solid fa-graduation-cap" style="color: var(--accent);"></i> Academic Education</h3>
+                        <div style="margin-top: 1rem;">
+                            <div style="margin-bottom: 1.5rem;">
+                                <div style="font-weight: 600; color: var(--text);">Master's in Management (Civil-Military Profile)</div>
+                                <div style="color: #94a3b8; font-size: 0.9rem;">Wyższa Szkoła Oficerska Wojsk Lądowych, Wrocław</div>
+                                <div style="color: var(--primary); font-size: 0.85rem;">September 2011 - July 2016</div>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <div style="font-weight: 600; color: var(--text);">Postgraduate Studies: Data Analyst</div>
+                                <div style="color: #94a3b8; font-size: 0.9rem;">Uniwersytet WSB Merito, Gdańsk</div>
+                                <div style="color: var(--primary); font-size: 0.85rem;">October 2021 - June 2026 (In Progress)</div>
+                                <div style="color: #cbd5e1; font-size: 0.85rem; margin-top: 0.3rem;">Focus: Python, R, SQL, Data Analysis</div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="card">
-                        <h3>Head of Prevention Department</h3>
-                        <span class="role">Military Gendarmerie</span>
-                        <p>Planned and executed VIP protection details. Conducted crisis response exercises and preventive actions within the military community.</p>
+                        <h3><i class="fa-solid fa-certificate" style="color: var(--accent);"></i> Professional Certifications</h3>
+                        <div style="margin-top: 1rem;">
+                            <div style="margin-bottom: 1rem;">
+                                <div style="font-weight: 600; color: var(--text);">CompTIA Security+</div>
+                                <div style="color: #94a3b8; font-size: 0.9rem;">CompTIA</div>
+                                <div style="color: var(--primary); font-size: 0.85rem;">SY0-701 | Valid 2024-2027</div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="card">
+                        <h3><i class="fa-solid fa-book-open" style="color: var(--accent);"></i> Online Courses & Training</h3>
+                        <div style="margin-top: 1rem;">
+                            <p style="color: var(--text); font-weight: 600; margin-bottom: 0.5rem;">Frontend Development:</p>
+                            <ul style="color: #94a3b8; padding-left: 1.5rem; margin-bottom: 1rem;">
+                                <li style="margin-bottom: 0.3rem;">Frontend for Beginners (HTML/CSS/JavaScript)</li>
+                                <li style="margin-bottom: 0.3rem;">Frontend for Intermediate (Advanced HTML/CSS/JS)</li>
+                            </ul>
+
+                            <p style="color: var(--text); font-weight: 600; margin-bottom: 0.5rem;">Data Analysis:</p>
+                            <ul style="color: #94a3b8; padding-left: 1.5rem; margin-bottom: 1rem;">
+                                <li style="margin-bottom: 0.3rem;">R - Fundamentals and Practice</li>
+                                <li style="margin-bottom: 0.3rem;">Python - Fundamentals and Practice</li>
+                                <li style="margin-bottom: 0.3rem;">Data Analysis in R</li>
+                                <li style="margin-bottom: 0.3rem;">Data Analysis in Python</li>
+                            </ul>
+
+                            <p style="color: var(--text); font-weight: 600; margin-bottom: 0.5rem;">Cybersecurity:</p>
+                            <ul style="color: #94a3b8; padding-left: 1.5rem; margin-bottom: 1rem;">
+                                <li style="margin-bottom: 0.3rem;">Various Udemy Cybersecurity Courses</li>
+                                <li style="margin-bottom: 0.3rem;">Security+ Preparation Courses</li>
+                            </ul>
+
+                            <p style="color: var(--text); font-weight: 600; margin-bottom: 0.5rem;">Graphic Design:</p>
+                            <ul style="color: #94a3b8; padding-left: 1.5rem;">
+                                <li style="margin-bottom: 0.3rem;">GIMP - Advanced Techniques</li>
+                                <li style="margin-bottom: 0.3rem;">Figma - UI/UX Design</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fa-solid fa-medal" style="color: var(--accent);"></i> Specialized Military Training</h3>
+                        <ul style="color: #94a3b8; margin-top: 1rem; padding-left: 1.5rem;">
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong style="color: var(--text);">Introduction to Counterterrorism Operations</strong><br>
+                                <span style="font-size: 0.85rem;">Police Academy, Szczytno | December 2024</span>
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong style="color: var(--text);">Military Police Operations Planning</strong><br>
+                                <span style="font-size: 0.85rem;">Military Police Training Center | October 2018</span>
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong style="color: var(--text);">Crowd & Riot Control (CRC)</strong><br>
+                                <span style="font-size: 0.85rem;">NATO SPCoe, Vicenza, Italy | September 2017</span>
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <strong style="color: var(--text);">NATO Tactical Operations Planning</strong><br>
+                                <span style="font-size: 0.85rem;">NATO MP COE, Bydgoszcz | October 2018 & October 2019</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--card); border-radius: 12px; border: 1px solid #334155;">
+                    <h3 style="color: var(--text); margin-bottom: 1rem;">Continuous Learning & Development</h3>
+                    <p style="color: #94a3b8; max-width: 800px; margin: 0 auto;">
+                        Currently pursuing postgraduate studies in Data Analysis while maintaining active engagement in cybersecurity communities. Committed to staying current with emerging technologies in data science, machine learning, and security operations. Combining formal education with practical military experience and hands-on technical training to deliver comprehensive analytical and security solutions.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="reveal">
             <div class="container">
                 <h2>> CONTACT_</h2>
                 <p>I'm open to discussing collaboration opportunities or answering any questions. Let's get in touch.</p>
@@ -262,6 +1033,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.main-nav');
 
@@ -270,9 +1042,10 @@
                 link.addEventListener('click', () => navMenu.classList.remove('active'));
             });
 
+            // Active Navigation Link
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.main-nav a');
-            const observer = new IntersectionObserver(entries => {
+            const navObserver = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
@@ -285,7 +1058,52 @@
                     }
                 });
             }, { rootMargin: '-30% 0px -70% 0px' });
-            sections.forEach(section => observer.observe(section));
+            sections.forEach(section => navObserver.observe(section));
+
+            // Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // Animated Skill Bars
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const skillObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        skillObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+            skillBars.forEach(bar => skillObserver.observe(bar));
+
+            // Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href !== '#contact') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>
