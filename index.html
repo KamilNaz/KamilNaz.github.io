@@ -1043,36 +1043,50 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Mobile Menu Toggle
+            /** @type {HTMLElement | null} */
             const hamburger = document.querySelector('.hamburger');
+            /** @type {HTMLElement | null} */
             const navMenu = document.querySelector('.main-nav');
 
-            hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
-            document.querySelectorAll('.main-nav a').forEach(link => {
-                link.addEventListener('click', () => navMenu.classList.remove('active'));
-            });
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+                /** @type {NodeListOf<HTMLAnchorElement>} */
+                const navMenuLinks = document.querySelectorAll('.main-nav a');
+                navMenuLinks.forEach((/** @type {HTMLAnchorElement} */ link) => {
+                    link.addEventListener('click', () => navMenu.classList.remove('active'));
+                });
+            }
 
             // Active Navigation Link
+            /** @type {NodeListOf<HTMLElement>} */
             const sections = document.querySelectorAll('section');
+            /** @type {NodeListOf<HTMLAnchorElement>} */
             const navLinks = document.querySelectorAll('.main-nav a');
-            const navObserver = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
+            /** @type {IntersectionObserver} */
+            const navObserver = new IntersectionObserver((/** @type {IntersectionObserverEntry[]} */ entries) => {
+                entries.forEach((/** @type {IntersectionObserverEntry} */ entry) => {
                     if (entry.isIntersecting) {
+                        /** @type {string | null} */
                         const id = entry.target.getAttribute('id');
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
-                            }
-                        });
+                        if (id) {
+                            navLinks.forEach((/** @type {HTMLAnchorElement} */ link) => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
                     }
                 });
             }, { rootMargin: '-30% 0px -70% 0px' });
-            sections.forEach(section => navObserver.observe(section));
+            sections.forEach((/** @type {HTMLElement} */ section) => navObserver.observe(section));
 
             // Scroll Reveal Animation
+            /** @type {NodeListOf<HTMLElement>} */
             const revealElements = document.querySelectorAll('.reveal');
-            const revealObserver = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
+            /** @type {IntersectionObserver} */
+            const revealObserver = new IntersectionObserver((/** @type {IntersectionObserverEntry[]} */ entries) => {
+                entries.forEach((/** @type {IntersectionObserverEntry} */ entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
                     }
@@ -1081,12 +1095,14 @@
                 threshold: 0.15,
                 rootMargin: '0px 0px -50px 0px'
             });
-            revealElements.forEach(el => revealObserver.observe(el));
+            revealElements.forEach((/** @type {HTMLElement} */ el) => revealObserver.observe(el));
 
             // Animated Skill Bars
+            /** @type {NodeListOf<HTMLElement>} */
             const skillBars = document.querySelectorAll('.skill-progress');
-            const skillObserver = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
+            /** @type {IntersectionObserver} */
+            const skillObserver = new IntersectionObserver((/** @type {IntersectionObserverEntry[]} */ entries) => {
+                entries.forEach((/** @type {IntersectionObserverEntry} */ entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animate');
                         skillObserver.unobserve(entry.target);
@@ -1095,14 +1111,18 @@
             }, {
                 threshold: 0.5
             });
-            skillBars.forEach(bar => skillObserver.observe(bar));
+            skillBars.forEach((/** @type {HTMLElement} */ bar) => skillObserver.observe(bar));
 
             // Smooth Scroll for Anchor Links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+            /** @type {NodeListOf<HTMLAnchorElement>} */
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach((/** @type {HTMLAnchorElement} */ anchor) => {
+                anchor.addEventListener('click', function (/** @type {MouseEvent} */ e) {
+                    /** @type {string | null} */
                     const href = this.getAttribute('href');
                     if (href !== '#' && href !== '#contact') {
                         e.preventDefault();
+                        /** @type {Element | null} */
                         const target = document.querySelector(href);
                         if (target) {
                             target.scrollIntoView({
